@@ -6,7 +6,7 @@
 /etc/init.d/gmond restart
 
 for node in $SLAVES $OTHER_MASTERS; do
-  ssh -t -t $SSH_OPTS root@$node "/etc/init.d/gmond restart"
+  ssh $SSH_OPTS root@$node "/etc/init.d/gmond restart"
 done
 
 # gmeta needs rrds to be owned by nobody

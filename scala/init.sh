@@ -17,6 +17,6 @@ echo "Unpacking Scala"
 wget http://s3.amazonaws.com/spark-related-packages/scala-$SCALA_VERSION.tgz
 tar xvzf scala-*.tgz > /tmp/spark-ec2_scala.log
 rm scala-*.tgz
-mv `ls -d scala-* | grep -v ec2` scala
+mv scala-2.10.3 scala
 
 popd > /dev/null

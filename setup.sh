@@ -44,10 +44,10 @@ if [[ "x$JAVA_HOME" == "x" ]] ; then
     exit 1
 fi
 
-if [[ `tty` == "not a tty" ]] ; then
-    echo "Expecting a tty or pty! (use the ssh -t option)."
-    exit 1
-fi
+# if [[ `tty` == "not a tty" ]] ; then
+#     echo "Expecting a tty or pty! (use the ssh -t option)."
+#     exit 1
+# fi
 
 echo "Setting executable permissions on scripts..."
 find . -regex "^.+.\(sh\|py\)" | xargs chmod a+x
@@ -69,7 +69,7 @@ setup_slave_start_time="$(date +'%s')"
 pssh --inline \
     --host "$MASTERS $SLAVES" \
     --user root \
-    --extra-args "-t -t $SSH_OPTS" \
+    --extra-args "$SSH_OPTS" \
     --timeout 0 \
     "spark-ec2/setup-slave.sh"
 setup_slave_end_time="$(date +'%s')"
