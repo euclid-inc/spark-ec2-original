@@ -22,7 +22,7 @@ first_slave = os.popen("cat /root/spark-ec2/slaves | head -1").read().strip()
 slave_mem_command = "ssh -o StrictHostKeyChecking=no %s %s" %\
         (first_slave, mem_command)
 
-slave_cpu_command = "ssh -o StrictHostKeyChecking=no %s %s" %\
+slave_cpu_command = "ssh -t -o StrictHostKeyChecking=no %s %s" %\
         (first_slave, cpu_command)
 
 slave_ram_kb = int(os.popen(slave_mem_command).read().strip())
