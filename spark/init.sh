@@ -124,15 +124,6 @@ else
         wget http://s3.amazonaws.com/spark-related-packages/spark-1.2.1-bin-hadoop2.4.tgz
       fi
       ;;
-    1.5.2)
-      if [[ "$HADOOP_MAJOR_VERSION" == "1" ]]; then
-        wget http://www.apache.org/dyn/closer.lua/spark/spark-1.5.2/spark-1.5.2-bin-hadoop1.tgz
-      elif [[ "$HADOOP_MAJOR_VERSION" == "2" ]]; then
-        wget http://www.apache.org/dyn/closer.lua/spark/spark-1.5.2/spark-1.5.2-bin-cdh4.tgz
-      else
-        wget http://www.apache.org/dyn/closer.lua/spark/spark-1.5.2/spark-1.5.2-bin-hadoop2.4.tgz
-      fi
-      ;;
     *)
       if [[ "$HADOOP_MAJOR_VERSION" == "1" ]]; then
         wget http://s3.amazonaws.com/spark-related-packages/spark-$SPARK_VERSION-bin-hadoop1.tgz
